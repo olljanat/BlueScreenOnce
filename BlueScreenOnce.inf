@@ -1,0 +1,60 @@
+;
+; BlueScreenOnce
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %ProviderString%
+CatalogFile = BlueScreenOnce.cat
+DriverVer = 07/21/2024,12.8.52.827
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12;
+
+; Default install sections
+[DefaultInstall.NTamd64]
+OptionDesc = %ServiceDescription%
+CopyFiles = BlueScreenOnce.DriverFiles1
+
+[DefaultInstall.NTamd64.Services]
+AddService = %ServiceName%,,BlueScreenOnce.Service
+
+; Default uninstall sections
+[DefaultUninstall.NTamd64]
+LegacyUninstall = 1
+DelFiles = BlueScreenOnce.DriverFiles2
+
+[DefaultUninstall.NTamd64.Services]
+DelService = %ServiceName%,0x200
+
+; Services Section
+[BlueScreenOnce.Service]
+DisplayName = %ServiceDescription%
+Description = %ServiceDescription%
+ServiceBinary = %12%\%DriverName%.sys
+ServiceType = 1   ; SERVICE_KERNEL_DRIVER
+StartType = 3     ; SERVICE_DEMAND_START
+ErrorControl = 0  ; SERVICE_ERROR_IGNORE
+
+; Copy Files
+[BlueScreenOnce.DriverFiles1]
+%DriverName%.sys
+[BlueScreenOnce.DriverFiles2]
+%DriverName%.sys
+
+[SourceDisksFiles]
+BlueScreenOnce.sys = 1,,
+
+[SourceDisksNames]
+1 = %DiskId1%,,,
+
+; String Section
+[Strings]
+ProviderString = "Olli Janatuinen"
+ServiceDescription = "Blue Screen Once driver"
+ServiceName = "BlueScreenOnce"
+DriverName = "BlueScreenOnce"
+DiskId1 = "BlueScreenOnce Device Installation Disk"

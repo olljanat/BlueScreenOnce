@@ -1,0 +1,247 @@
+Microsoft (R) Windows Debugger Version 10.0.22621.2428 AMD64
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+
+Loading Dump File [C:\Temp\BlueScreenOnce\072224-78671-01.dmp]
+Mini Kernel Dump File: Only registers and stack trace are available
+
+Symbol search path is: srv*
+Executable search path is: 
+Windows 10 Kernel Version 20348 MP (8 procs) Free x64
+Product: Server, suite: TerminalServer SingleUserTS
+Edition build lab: 20348.859.amd64fre.fe_release_svc_prod2.220707-1832
+Machine Name:
+Kernel base = 0xfffff806`46a1e000 PsLoadedModuleList = 0xfffff806`47651d20
+Debug session time: Mon Jul 22 12:18:04.470 2024 (UTC + 2:00)
+System Uptime: 0 days 2:36:59.792
+Loading Kernel Symbols
+...............................................................
+................................................................
+.......................................
+Loading User Symbols
+Loading unloaded module list
+...................
+For analysis of this file, run !analyze -v
+
+************* Path validation summary **************
+Response                         Time (ms)     Location
+OK                                             C:\Temp\BlueScreenOnce
+4: kd> .reload
+Loading Kernel Symbols
+...............................................................
+................................................................
+.......................................
+Loading User Symbols
+Loading unloaded module list
+...................
+4: kd> .sympath srv*http://msdl.microsoft.com/download/symbols C:\Temp\BlueScreenOnce
+Symbol search path is: srv*http://msdl.microsoft.com/download/symbols C:\Temp\BlueScreenOnce
+Expanded Symbol search path is: srv*http://msdl.microsoft.com/download/symbols C:\Temp\BlueScreenOnce
+
+************* Path validation summary **************
+Response                         Time (ms)     Location
+Deferred                                       srv*http://msdl.microsoft.com/download/symbols C:\Temp\BlueScreenOnce
+4: kd> !analyze -v
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+SYSTEM_THREAD_EXCEPTION_NOT_HANDLED_M (1000007e)
+This is a very common BugCheck.  Usually the exception address pinpoints
+the driver/function that caused the problem.  Always note this address
+as well as the link date of the driver/image that contains this address.
+Some common problems are exception code 0x80000003.  This means a hard
+coded breakpoint or assertion was hit, but this system was booted
+/NODEBUG.  This is not supposed to happen as developers should never have
+hardcoded breakpoints in retail code, but ...
+If this happens, make sure a debugger gets connected, and the
+system is booted /DEBUG.  This will let us see why this breakpoint is
+happening.
+Arguments:
+Arg1: ffffffffc0000005, The exception code that was not handled
+Arg2: fffff8081c8f1038, The address that the exception occurred at
+Arg3: fffffe8f28c494a8, Exception Record Address
+Arg4: fffffe8f28c48cc0, Context Record Address
+
+Debugging Details:
+------------------
+
+Unable to load image \SystemRoot\system32\drivers\Wdf01000.sys, Win32 error 0n2
+*** WARNING: Unable to verify timestamp for Wdf01000.sys
+*************************************************************************
+***                                                                   ***
+***                                                                   ***
+***    Either you specified an unqualified symbol, or your debugger   ***
+***    doesn't have full symbol information.  Unqualified symbol      ***
+***    resolution is turned off by default. Please either specify a   ***
+***    fully qualified symbol module!symbolname, or enable resolution ***
+***    of unqualified symbols by typing ".symopt- 100". Note that     ***
+***    enabling unqualified symbol resolution with network symbol     ***
+***    server shares in the symbol path may cause the debugger to     ***
+***    appear to hang for long periods of time when an incorrect      ***
+***    symbol name is typed or the network symbol server is down.     ***
+***                                                                   ***
+***    For some commands to work properly, your symbol path           ***
+***    must point to .pdb files that have full type information.      ***
+***                                                                   ***
+***    Certain .pdb files (such as the public OS symbols) do not      ***
+***    contain the required information.  Contact the group that      ***
+***    provided you with these symbols if you need this command to    ***
+***    work.                                                          ***
+***                                                                   ***
+***    Type referenced: Wdf01000!_FX_DRIVER_GLOBALS                   ***
+***                                                                   ***
+*************************************************************************
+*************************************************************************
+***                                                                   ***
+***                                                                   ***
+***    Either you specified an unqualified symbol, or your debugger   ***
+***    doesn't have full symbol information.  Unqualified symbol      ***
+***    resolution is turned off by default. Please either specify a   ***
+***    fully qualified symbol module!symbolname, or enable resolution ***
+***    of unqualified symbols by typing ".symopt- 100". Note that     ***
+***    enabling unqualified symbol resolution with network symbol     ***
+***    server shares in the symbol path may cause the debugger to     ***
+***    appear to hang for long periods of time when an incorrect      ***
+***    symbol name is typed or the network symbol server is down.     ***
+***                                                                   ***
+***    For some commands to work properly, your symbol path           ***
+***    must point to .pdb files that have full type information.      ***
+***                                                                   ***
+***    Certain .pdb files (such as the public OS symbols) do not      ***
+***    contain the required information.  Contact the group that      ***
+***    provided you with these symbols if you need this command to    ***
+***    work.                                                          ***
+***                                                                   ***
+***    Type referenced: Wdf01000!_WDF_DRIVER_GLOBALS                  ***
+***                                                                   ***
+*************************************************************************
+
+KEY_VALUES_STRING: 1
+
+    Key  : AV.Dereference
+    Value: NullClassPtr
+
+    Key  : AV.Fault
+    Value: Read
+
+    Key  : Analysis.CPU.mSec
+    Value: 2561
+
+    Key  : Analysis.DebugAnalysisManager
+    Value: Create
+
+    Key  : Analysis.Elapsed.mSec
+    Value: 14712
+
+    Key  : Analysis.Init.CPU.mSec
+    Value: 2531
+
+    Key  : Analysis.Init.Elapsed.mSec
+    Value: 155024
+
+    Key  : Analysis.Memory.CommitPeak.Mb
+    Value: 97
+
+    Key  : WER.OS.Branch
+    Value: fe_release_svc_prod2
+
+    Key  : WER.OS.Timestamp
+    Value: 2022-07-07T18:32:00Z
+
+    Key  : WER.OS.Version
+    Value: 10.0.20348.859
+
+
+FILE_IN_CAB:  072224-78671-01.dmp
+VIRTUAL_MACHINE:  HyperV
+BUGCHECK_CODE:  7e
+BUGCHECK_P1: ffffffffc0000005
+BUGCHECK_P2: fffff8081c8f1038
+BUGCHECK_P3: fffffe8f28c494a8
+BUGCHECK_P4: fffffe8f28c48cc0
+
+EXCEPTION_RECORD:  fffffe8f28c494a8 -- (.exr 0xfffffe8f28c494a8)
+ExceptionAddress: fffff8081c8f1038 (BlueScreenOnce!DriverEntry+0x0000000000000038)
+   ExceptionCode: c0000005 (Access violation)
+  ExceptionFlags: 00000000
+NumberParameters: 2
+   Parameter[0]: 0000000000000000
+   Parameter[1]: 000000000000009c
+Attempt to read from address 000000000000009c
+
+CONTEXT:  fffffe8f28c48cc0 -- (.cxr 0xfffffe8f28c48cc0)
+rax=000000000000009c rbx=0000000000000000 rcx=b4acf55871a80000
+rdx=0000000000000003 rsi=ffffe30fb9ffb000 rdi=ffffe30fb75a4910
+rip=fffff8081c8f1038 rsp=fffffe8f28c496e0 rbp=0000000000000000
+ r8=00000000000000c6  r9=0000000000000004 r10=00000000000001d6
+r11=0000000000000016 r12=ffffa606b16ebf30 r13=ffffffff8000191c
+r14=fffff8081c8f3298 r15=ffffe30fb75a4910
+iopl=0         nv up ei pl nz na pe nc
+cs=0010  ss=0018  ds=002b  es=002b  fs=0053  gs=002b             efl=00050202
+BlueScreenOnce!DriverEntry+0x38:
+fffff808`1c8f1038 8b00            mov     eax,dword ptr [rax] ds:002b:00000000`0000009c=????????
+Resetting default scope
+
+BLACKBOXBSD: 1 (!blackboxbsd)
+BLACKBOXNTFS: 1 (!blackboxntfs)
+BLACKBOXPNP: 1 (!blackboxpnp)
+BLACKBOXWINLOGON: 1
+CUSTOMER_CRASH_COUNT:  1
+PROCESS_NAME:  System
+
+READ_ADDRESS: fffff8064772d3d0: Unable to get MiVisibleState
+Unable to get NonPagedPoolStart
+Unable to get NonPagedPoolEnd
+Unable to get PagedPoolStart
+Unable to get PagedPoolEnd
+unable to get nt!MmSpecialPagesInUse
+ 000000000000009c 
+
+ERROR_CODE: (NTSTATUS) 0xc0000005 - The instruction at 0x%p referenced memory at 0x%p. The memory could not be %s.
+EXCEPTION_CODE_STR:  c0000005
+EXCEPTION_PARAMETER1:  0000000000000000
+EXCEPTION_PARAMETER2:  000000000000009c
+EXCEPTION_STR:  0xc0000005
+
+STACK_TEXT:  
+fffffe8f`28c496e0 fffff808`1c8f136b     : ffffe30f`b75a4910 ffffe30f`b9ffb000 ffffe30f`b9ffb000 ffffe30f`b98d4270 : BlueScreenOnce!DriverEntry+0x38 [C:\Users\user\source\repos\BlueScreenOnce\Driver.c @ 46] 
+fffffe8f`28c49720 fffff808`1c8f12a0     : ffffe30f`b9ffb000 fffffe8f`28c498f0 ffffe30f`ba0c6e90 ffffe30f`b75a4910 : BlueScreenOnce!FxDriverEntryWorker+0xbf [minkernel\wdf\framework\kmdf\src\dynamic\stub\stub.cpp @ 360] 
+fffffe8f`28c49760 fffff806`47163020     : ffffe30f`b9ffb000 00000000`00000000 00000000`00000000 fffffe8f`28c498f0 : BlueScreenOnce!FxDriverEntry+0x20 [minkernel\wdf\framework\kmdf\src\dynamic\stub\stub.cpp @ 249] 
+fffffe8f`28c49790 fffff806`47166870     : 00000000`0000001e 00000000`00000000 00000000`00000000 fffff806`00001000 : nt!PnpCallDriverEntry+0x4c
+fffffe8f`28c497f0 fffff806`4706ad37     : 00000000`00000000 00000000`00000000 00000000`00000000 ffffe30f`b50b8780 : nt!IopLoadDriver+0x8b4
+fffffe8f`28c499a0 fffff806`46cf9d01     : ffffe30f`00000000 ffffffff`8000191c ffffe30f`b9159040 00000000`00000000 : nt!IopLoadUnloadDriver+0x57
+fffffe8f`28c499e0 fffff806`46d87f15     : ffffe30f`b9159040 00000000`00000001 ffffe30f`b9159040 00000000`00000000 : nt!ExpWorkerThread+0x161
+fffffe8f`28c49bf0 fffff806`46e42488     : ffffcc80`37d00180 ffffe30f`b9159040 fffff806`46d87ec0 00000000`00000246 : nt!PspSystemThreadStartup+0x55
+fffffe8f`28c49c40 00000000`00000000     : fffffe8f`28c4a000 fffffe8f`28c44000 00000000`00000000 00000000`00000000 : nt!KiStartSystemThread+0x28
+
+FAULTING_SOURCE_LINE:  C:\Users\user\source\repos\BlueScreenOnce\Driver.c
+FAULTING_SOURCE_FILE:  C:\Users\user\source\repos\BlueScreenOnce\Driver.c
+FAULTING_SOURCE_LINE_NUMBER:  46
+FAULTING_SOURCE_CODE:  
+    42:     if (IsOnOrAfterTargetDate()) {
+    43: 
+    44:         // Trigger BSOD by reading from an invalid memory address
+    45:         volatile ULONG* p = (volatile ULONG*)0x9c;
+>   46:         ULONG value2 = *p;
+    47: 
+    48:         // Use the read value to prevent compiler optimizations
+    49:         UNREFERENCED_PARAMETER(value2);
+    50:     }
+    51:     
+
+SYMBOL_NAME:  BlueScreenOnce!DriverEntry+38
+MODULE_NAME: BlueScreenOnce
+IMAGE_NAME:  BlueScreenOnce.sys
+STACK_COMMAND:  .cxr 0xfffffe8f28c48cc0 ; kb
+BUCKET_ID_FUNC_OFFSET:  38
+FAILURE_BUCKET_ID:  AV_VRF_BlueScreenOnce!DriverEntry
+OS_VERSION:  10.0.20348.859
+BUILDLAB_STR:  fe_release_svc_prod2
+OSPLATFORM_TYPE:  x64
+OSNAME:  Windows 10
+FAILURE_ID_HASH:  {02237683-745e-83c5-cdb3-0a375c1b1d10}
+Followup:     MachineOwner
+---------
